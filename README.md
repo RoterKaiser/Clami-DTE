@@ -18,7 +18,7 @@ en formato JSON o CSV dependiendo de su preferencia, una vez formateado el docum
 
 Se requiere que el header especifique el tipo de contenido JSON y el Token de autorización.
 
-```
+```js
 Content-Type: application/json
 Authorization: Token <value_token>
 ```
@@ -54,7 +54,7 @@ La siguiente plantilla es el template general en formato JSON, utilizada por Cla
 + Nota de debito
 + Guia de despacho
 
-```json
+```js
 {
   "Caratula": {
     "RutEmisor": "value",
@@ -176,7 +176,7 @@ La siguiente plantilla es el template general en formato JSON, utilizada por Cla
 
 A continuación se da a conocer un ejemplo de factura electrónica en formato JSON.
 
-```json
+```js
 
 {
   "Caratula": {
@@ -268,7 +268,7 @@ La siguiente plantilla es el template general en formato CSV, utilizada por Clam
 + Nota de debito
 + Guia de despacho
 
-```
+```js
 CA
 Caratula;1;2;3;4;5;6;7
 EN
@@ -296,7 +296,7 @@ Referencia;1;2;3;4;5;6;7;8
 A continuación se muestra el mismo ejemplo que se dio a conocer para el formato JSON, pero en esta ocasión en formato CSV.
 
 
-```
+```js
 CA
 Caratula;1111111-1;2222222-2;60803000-K;2014-03-04;0;R;
 EN
@@ -377,7 +377,7 @@ Para los casos de exito se incluye el campo 'documentos', que contiene los datos
 
 ##### Ejemplo respuesta en caso de exito
 
-```json
+```js
 {  
    "codigo":200,
    "estado":"OK",
