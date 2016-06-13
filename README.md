@@ -271,7 +271,6 @@ La siguiente plantilla es el template general en formato CSV, utilizada por Clam
 ```java
 CA
 Caratula;"RutEmisor";"RutEnvia";"RutReceptor";"FchResol";"NroResol";"TmstFirmaEnv";"SubTotDTE"
-SubTotDTE;"TpoDTE";"NroDTE"
 EN
 Encabezado;"R";"R";"RUTMandante";"R";"RUTSolicita";"R";"R";"OtraMoneda"
 IdDoc;"TipoDTE";"Folio";"FchEmis";"IndNoRebaja";"TipoDespacho";"IndTraslado";"TpoImpresion";"IndServicio";"MntBruto";"FmaPago";"FmaPagExp";"FchCancel";"MntCancel";"SaldoInsol";"MntPagos";"PeriodoDesde";"PeriodoHasta";"MedioPago";"TpoCtaPago";"NumCtaPago";"BcoPago";"TermPagoCdg";"TermPagoGlosa";"TermPagoDias";"FchVenc"
@@ -281,13 +280,16 @@ Receptor;"RUTRecep";"CdgIntRecep";"RznSocRecep";"Extranjero";"GiroRecep";"Contac
 Transporte;"Patente";"RUTTrans";"R";"DirDest";"CmnaDest";"CiudadDest";"R"
 Chofer;"RUTChofer";"NombreChofer"
 TipoBultos;"CodTpoBultos";"CantBultos";"Marcas";"IdContainer";"Sello";"EmisorSello"
-ImptoReten;"TipoImp";"TasaImp";"MontoImp"
+ImptoReten;"TipoImp";"TasaImp";"MontoImp" (repetible)
 DE
 Detalle;"NroLinDet";"R";"IndExe";"Retenedor";"NmbItem";"DscItem";"QtyRef";"UnmdRef";"PrcRef";"QtyItem";"Subcantidad";"FchElabor";"FchVencim";"UnmdItem";"PrcItem";"OtrMnda";"DescuentoPct";"DescuentoMonto";"SubDscto";"RecargoPct";"RecargoMonto";"SubRecargo";"CodImpAdic";"MontoItem"
+#Campo repetible 
 CdgItem;"TpoCodigo";"VlrCodigo"
 DR
+#Campo repetible
 DscRcgGlobal;"NroLinDR";"TpoMov";"GlosaDR";"TpoValor";"ValorDR";"ValorDROtrMnda";"IndExeDR"
 RE
+#Campo repetible
 Referencia;"NroLinRef";"TpoDocRef";"IndGlobal";"FolioRef";"RUTOtr";"FchRef";"CodRef";"RazonRef"
 ```
 
