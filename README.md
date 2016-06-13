@@ -15,7 +15,7 @@ Content-Type: application/json
 Authorization: Token <value_token>
 ```
 
-## Metodos de envío en formato JSON
+## Envío en formato json
 
 ### URL Envio:
 
@@ -241,7 +241,7 @@ Archivo **dte.sjon:**
 }
 ```
 
-## Metodo de envio CSV
+## Envío en formato csv
 
 ### URL Envio:
 ```
