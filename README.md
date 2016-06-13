@@ -317,7 +317,7 @@ FIN
 ```
 
 
-```json
+```ruby
 {
 "Documento":"Q0EKQ2FyYXR1bGE7MTsyOzM7NDs1OzY7NwpFTgp
 FbmNhYmV6YWRvOzE7MjszOzQ7NTs2Ozc7OApJZERvYzsxOzI7Mzs
