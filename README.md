@@ -54,7 +54,7 @@ La siguiente plantilla es el template general en formato JSON, utilizada por Cla
 + Nota de debito
 + Guia de despacho
 
-```
+```json
 {
   "Caratula": {
     "RutEmisor": "value",
@@ -176,7 +176,7 @@ La siguiente plantilla es el template general en formato JSON, utilizada por Cla
 
 A continuación se da a conocer un ejemplo de factura electrónica en formato JSON.
 
-```
+```json
 
 {
   "Caratula": {
@@ -317,9 +317,9 @@ FIN
 ```
 
 
-```
+```json
 {
-"Documento":'Q0EKQ2FyYXR1bGE7MTsyOzM7NDs1OzY7NwpFTgp
+"Documento":"Q0EKQ2FyYXR1bGE7MTsyOzM7NDs1OzY7NwpFTgp
 FbmNhYmV6YWRvOzE7MjszOzQ7NTs2Ozc7OApJZERvYzsxOzI7Mzs
 0OzU7Njs3Ozg7OTsxMDsxMTsxMjsxMzsxNDsxNTsxNjsxNzsxODs
 xOTsyMDsyMTsyMjsyMzsyNDsyNQpNbnRQYWdvczsxOzI7MwpFbWl
@@ -330,7 +330,7 @@ SZXRlbjsxOzI7MwpERQpEZXRhbGxlOzE7MjszOzQ7NTs2Ozc7ODs
 5OzEwOzExOzEyOzEzOzE0OzE1OzE2OzE3OzE4OzE5OzIwOzIxOzI
 yOzIzOzI0OzI1CkNkZ0l0ZW07MTsyClN1YkRzY3RvOzE7MgpTdWJ
 SZWNhcmdvOzE7MgpEUgpEc2NSY2dHbG9iYWw7MTsyOzM7NDs1OzY
-7NwpSRQpSZWZlcmVuY2lhOzE7MjszOzQ7NTs2Ozc7OA=='
+7NwpSRQpSZWZlcmVuY2lhOzE7MjszOzQ7NTs2Ozc7OA="
 }
 ```
 
@@ -377,7 +377,7 @@ Para los casos de exito se incluye el campo 'documentos', que contiene los datos
 
 ##### Ejemplo respuesta en caso de exito
 
-```
+```json
 {  
    "codigo":200,
    "estado":"OK",
