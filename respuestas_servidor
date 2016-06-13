@@ -1,0 +1,56 @@
+##Respuesta Servidor
+
+* Todas las respuestas entregadas por el sistema se encuentran en formato JSON
+
+**TIpos de campos**:
+
+codigo  | estado |  detalle     | documentos
+--------|--------|--------------|------------
+**200**     | OK     | NO | SI
+**600**    | Firma digital no cargada | NO | NO
+**601**    | Error validacion Schema DTE | SI | NO
+**602**    | Error validacion Schema Envio | SI | NO
+**603**     | Error Firmado | NO | NO
+**604**     | Error al normalizar datos | SI | NO
+**605**     | Caracaracter no soportado para ISO-8859-1 en el campo **\<nombre_campo>** | NO | NO
+**500**    | Error servidor | NO | NO
+**501**     | Falta campo para normalizar el documento | SI | NO
+**502**     | Rut Emisor incorrecto para este usuario | NO | NO
+**503**     | Rut Envia incorrecto para este usuario | NO | NO
+**504**     | El campo **\<nombre_campo>**, no corresponde o no se encuentra en la seccion correcta | NO | NO
+**505**     | El documento se encuentra mal codificado (Base64) | NO | NO
+**506**     | El Folio **\<numero_folio>** del tipo DTE **\<tipo_dte>**, ya fue utilizado | NO | NO
+**507**     | No hay folios disponibles, para el tipo de dte {} | NO | NO
+**508**     | No se encontro CAF para el folio **\<numero_folio>**, tipo DTE **\<tipo_dte>**  | NO | NO
+**509**     | El documento csv, no se encuentra en base64 | NO | NO
+**404**     | No se pudo resolver el host | NO | NO
+**405**     | Error desconocido, al enviar el documento | NO | NO
+**406**     | No se pudo obtener un token de auteticacion con SII| NO | NO
+ 
+
+Para los casos de exito se incluye un campo de documentos, que contiene los datos de los documentos enviados y generador dentro de una lista.
+
+#####Campos incluidos en 'documentos':
+
+* **xml**: URL temporal que contiene el xml del documento, en caso de q se desee obtener para impresión u otro objetivo
+* **pdf**: URL temporal que contiene el xml del documento, en caso de q se desee obtener para impresión u otro objetivo
+* **folio**: Folio asignado al documento
+* **tipo**: Tipo de documento
+ 
+
+##### Ejemplo respuesta en caso de exito
+
+```
+{  
+   "codigo":200,
+   "estado":"OK",
+   "documentos":[  
+      {  
+         "xml":"https://documentos-tributarios.s3.amazonaws.com/78961710-4/DTE/T33F191.xml?Signature=P4ctCMM4RkFyX3FMeTszMRgDpeY%3D&Expires=1465660393&AWSAccessKeyId=AKIAIJ7B6LV6CKCSFD7Q",
+         "pdf":"https://documentos-tributarios.s3.amazonaws.com/78961710-4/PDF/33/T33F191.pdf?Signature=IQnSV7tZY%2FDNyGKtFttGDLp0SYg%3D&Expires=1465660393&AWSAccessKeyId=AKIAIJ7B6LV6CKCSFD7Q",
+         "folio":"191",
+         "tipo":"33"
+      }
+   ]
+}
+```

@@ -1,0 +1,80 @@
+## Metodo de envio CSV
+
+### URL Envio:
+```
+POST /v1/enviar/dte
+```
+
+###Plantilla General
+
+La siguiente plantilla es el template general en formato CSV, utilizada por Clami DTE para la formacion y envio de los siguientes documentos:
+
++ Factura Electrónica
++ Factura de compra
++ Nota de credito
++ Nota de debito
++ Guia de despacho 
+
+```
+CA
+Caratula;1;2;3;4;5;6;7
+EN
+Encabezado;1;2;3;4;5;6;7;8
+IdDoc;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20;21;22;23;24;25
+MntPagos;1;2;3
+Emisor;1;2;3;4;5;6;7;8;9;10;11;12;13;14
+Receptor;1;2;3;4;5;6;7;8;9;10;11;12;13
+Transporte;1;2;3;4;5;6;7
+Chofer;1;2
+ImptoReten;1;2;3
+DE
+Detalle;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20;21;22;23;24;25
+CdgItem;1;2
+SubDscto;1;2
+SubRecargo;1;2
+DR
+DscRcgGlobal;1;2;3;4;5;6;7
+RE
+Referencia;1;2;3;4;5;6;7;8
+```
+
+### Ejemplo CSV (Mismo que en JSON)
+```
+CA
+Caratula;1111111-1;2222222-2;60803000-K;2014-03-04;0;R;
+EN
+Totales;;;;;19;;;;;;;;;;;;;
+IdDoc;33;;2016-05-25;;;;;;;;;;;;;;;;;;;;;;
+Emisor;1111111-1;EMPRESA PRUEBA;SERVICIOS INTEGRALES DE INFORMATICA;;;726000;;;;LINGUE 4789;SAN BERNARDO;SANTIAGO;;
+Receptor;3333333-3;;JORGE GONZALEZ LTDA;;COMPUTACION;;;SAN DIEGO 2222;LA FLORIDA;SANTIAGO;;;
+Encabezado;;;;;;;;
+DE1
+Detalle;1;;;;Pintura B&W AFECTO;;;;;40;;;;;4827;;;;;;;;;;
+DE2
+Detalle;2;;;;ITEM 2 AFECTO;;;;;198;;;;;3475;;;;;;;;;;
+DE3
+Detalle;3;;1;;ITEM 3 SERVICIO EXENTO;;;;;1;;;;;35033;;;;;;;;;;
+RE1
+Referencia;1;SET;;72;;2016-05-25;1;CASO 478979-3
+FIN
+```
+
+
+```
+{
+"Documento":'Q0EKQ2FyYXR1bGE7MTsyOzM7NDs1OzY7NwpFTgp
+FbmNhYmV6YWRvOzE7MjszOzQ7NTs2Ozc7OApJZERvYzsxOzI7Mzs
+0OzU7Njs3Ozg7OTsxMDsxMTsxMjsxMzsxNDsxNTsxNjsxNzsxODs
+xOTsyMDsyMTsyMjsyMzsyNDsyNQpNbnRQYWdvczsxOzI7MwpFbWl
+zb3I7MTsyOzM7NDs1OzY7Nzs4Ozk7MTA7MTE7MTI7MTM7MTQKUmV
+jZXB0b3I7MTsyOzM7NDs1OzY7Nzs4Ozk7MTA7MTE7MTI7MTMKVHJ
+hbnNwb3J0ZTsxOzI7Mzs0OzU7Njs3CkNob2ZlcjsxOzIKSW1wdG9
+SZXRlbjsxOzI7MwpERQpEZXRhbGxlOzE7MjszOzQ7NTs2Ozc7ODs
+5OzEwOzExOzEyOzEzOzE0OzE1OzE2OzE3OzE4OzE5OzIwOzIxOzI
+yOzIzOzI0OzI1CkNkZ0l0ZW07MTsyClN1YkRzY3RvOzE7MgpTdWJ
+SZWNhcmdvOzE7MgpEUgpEc2NSY2dHbG9iYWw7MTsyOzM7NDs1OzY
+7NwpSRQpSZWZlcmVuY2lhOzE7MjszOzQ7NTs2Ozc7OA=='
+}
+
+```
+
