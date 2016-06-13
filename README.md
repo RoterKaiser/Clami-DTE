@@ -12,7 +12,7 @@ o uso del portal web de facturación, podrá realizar la emisión de documentos 
 ### Introduccion
 
 Para poder enviar un documento mediante webservice, se requiere que los datos que lo representan se encuentren
-en formato JSON o CSV dependiendo de su preferencia, una vez formateado el documento se debe enviar mediante un HTTP Request vía POST, el contenido del request debe ser de tipo JSON y se debe enviar con un token de autorización que identifique su usuario. Una vez realizado el envío, el servidor retornara la respuesta en formato JSON.
+en formato JSON o CSV dependiendo de su preferencia, una vez formateado el documento se debe enviar mediante un HTTP Request vía POST. El contenido del request debe ser de tipo JSON y se debe incluir un token de autorización que identifique su usuario, el que debe ser obtenido del portal de facturación. Una vez realizado el envío, el servidor retornara la respuesta en formato JSON.
 
 ### Configuración Header
 
@@ -35,7 +35,9 @@ POST /v2/enviar/dte
 
 ### Ejemplo envio vía curl:
 
-Ejemplo de envio de un documento en formato JSON, via CURL
+Ejemplo de envio de un documento en formato JSON, via CURL.
+
+* @dte.json : Corresponde al documento envíado
 
 ```
 curl -H "Authorization:Token <value_token>" -H "Content-Type: application/json" --data @dte.json
@@ -172,7 +174,7 @@ La siguiente plantilla es el template general en formato JSON, utilizada por Cla
 ```
 ###Ejemplo Factura Electrónica
 
-Archivo **dte.sjon:**
+A continuación se da a conocer un ejemplo de factura electrónica en formato JSON.
 
 ```
 
@@ -289,7 +291,11 @@ RE
 Referencia;1;2;3;4;5;6;7;8
 ```
 
-### Ejemplo CSV (Mismo que en JSON)
+### Ejemplo CSV
+
+A continuación se muestra el mismo ejemplo que se dio a conocer para el formato JSON, pero en esta ocasión en formato CSV.
+
+
 ```
 CA
 Caratula;1111111-1;2222222-2;60803000-K;2014-03-04;0;R;
@@ -331,7 +337,7 @@ SZWNhcmdvOzE7MgpEUgpEc2NSY2dHbG9iYWw7MTsyOzM7NDs1OzY
 
 ##Respuestas a envío
 
-* Todas las respuestas entregadas por el sistema se encuentran en formato JSON
+A continuación se da a conocer los tipos de respuestas posibles retornadas por el servidor las cuales se encuentran en formato JSON.
 
 **TIpos de campos**:
 
@@ -339,27 +345,27 @@ codigo  | estado |  detalle     | documentos
 --------|--------|--------------|------------
 **200**     | OK     | NO | SI
 **600**    | Firma digital no cargada | NO | NO
-**601**    | Error validacion Schema DTE | SI | NO
-**602**    | Error validacion Schema Envio | SI | NO
+**601**    | Error validación Schema DTE | SI | NO
+**602**    | Error validación Schema Envio | SI | NO
 **603**     | Error Firmado | NO | NO
 **604**     | Error al normalizar datos | SI | NO
-**605**     | Caracaracter no soportado para ISO-8859-1 en el campo **\<nombre_campo>** | NO | NO
+**605**     | Caracter no soportado para ISO-8859-1 en el campo **\<nombre_campo>** | NO | NO
 **500**    | Error servidor | NO | NO
 **501**     | Falta campo para normalizar el documento | SI | NO
 **502**     | Rut Emisor incorrecto para este usuario | NO | NO
-**503**     | Rut Envia incorrecto para este usuario | NO | NO
-**504**     | El campo **\<nombre_campo>**, no corresponde o no se encuentra en la seccion correcta | NO | NO
+**503**     | Rut Envía incorrecto para este usuario | NO | NO
+**504**     | El campo **\<nombre_campo>**, no corresponde o no se encuentra en la sección correcta | NO | NO
 **505**     | El documento se encuentra mal codificado (Base64) | NO | NO
 **506**     | El Folio **\<numero_folio>** del tipo DTE **\<tipo_dte>**, ya fue utilizado | NO | NO
-**507**     | No hay folios disponibles, para el tipo de dte {} | NO | NO
+**507**     | No hay folios disponibles, para el tipo de dte **\<tipo_dte>** | NO | NO
 **508**     | No se encontro CAF para el folio **\<numero_folio>**, tipo DTE **\<tipo_dte>**  | NO | NO
 **509**     | El documento csv, no se encuentra en base64 | NO | NO
 **404**     | No se pudo resolver el host | NO | NO
 **405**     | Error desconocido, al enviar el documento | NO | NO
-**406**     | No se pudo obtener un token de auteticacion con SII| NO | NO
+**406**     | No se pudo obtener un token de autenticación con SII| NO | NO
 
 
-Para los casos de exito se incluye un campo de documentos, que contiene los datos de los documentos enviados y generador dentro de una lista.
+Para los casos de exito se incluye el campo 'documentos', que contiene los datos de los documentos enviados y generados.
 
 #####Campos incluidos en 'documentos':
 
