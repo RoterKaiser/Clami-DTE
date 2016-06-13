@@ -1,10 +1,18 @@
 # API - Clami DTE
 
+Clami DTE, es un servicio de facturación electrónica que mediante la integración de nuestro webservice
+o uso del portal web, podra realizar la emision de documetos electrónicos tributarios
+
 ### Tabla de contenidos
 **[Configuración Header](#configuración-header)**  
 **[Envío en formato json](#envío-en-formato-json)**  
 **[Envío en formato csv](#envío-en-formato-csv)**  
 **[Respuestas a envío](#respuestas-a-envío)**  
+
+### Introduccion
+
+Para poder enviar un documento mediante webservice, se requiere que los datos que lo representan se encuentren
+en formato JSON o CSV dependiendo de su preferencia, una vez formateado el documento se debe enviar mediante un HTTP Request vía POST, el contenido del request debe ser de tipo JSON y se debe enviar con un token de autorización que identifique su usuario, una vez realizado el envío el servidor responderá en formato json con el resultado del Request.
 
 ### Configuración Header
 
