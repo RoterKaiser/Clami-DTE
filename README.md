@@ -150,7 +150,7 @@ La siguiente plantilla es el template general en formato JSON, utilizada por Cla
     "DescuentoMonto": "value",
     "RecargoPct": "value",
     "RecargoMonto": "value",
-    "CodImpAdic": "value"
+    "CodImpAdic": "value",
     "MontoItem": "value"
   }],
    "DscRcgGlobal": [{
