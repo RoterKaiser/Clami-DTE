@@ -337,7 +337,7 @@ SZWNhcmdvOzE7MgpEUgpEc2NSY2dHbG9iYWw7MTsyOzM7NDs1OzY\
 
 ##Respuestas a envío
 
-A continuación se da a conocer los tipos de respuestas posibles retornadas por el servidor las cuales se encuentran en formato JSON.
+A continuación se da a conocer los tipos de respuestas posibles retornadas por el servidor las que se encuentran en formato JSON.
 
 **TIpos de campos**:
 
