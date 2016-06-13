@@ -296,7 +296,7 @@ Referencia;1;2;3;4;5;6;7;8
 A continuación se muestra el mismo ejemplo que se dio a conocer para el formato JSON, pero en esta ocasión en formato CSV.
 
 
-```js
+```ruby
 CA
 Caratula;1111111-1;2222222-2;60803000-K;2014-03-04;0;R;
 EN
