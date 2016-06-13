@@ -280,16 +280,17 @@ Receptor;"RUTRecep";"CdgIntRecep";"RznSocRecep";"Extranjero";"GiroRecep";"Contac
 Transporte;"Patente";"RUTTrans";"R";"DirDest";"CmnaDest";"CiudadDest";"R"
 Chofer;"RUTChofer";"NombreChofer"
 TipoBultos;"CodTpoBultos";"CantBultos";"Marcas";"IdContainer";"Sello";"EmisorSello"
-ImptoReten;"TipoImp";"TasaImp";"MontoImp" (repetible)
-DE
+/*Campo Repetible*/
+ImptoReten;"TipoImp";"TasaImp";"MontoImp"
+/*Seccion repetible DE1, DE2, ETC..*/
+DE1
 Detalle;"NroLinDet";"R";"IndExe";"Retenedor";"NmbItem";"DscItem";"QtyRef";"UnmdRef";"PrcRef";"QtyItem";"Subcantidad";"FchElabor";"FchVencim";"UnmdItem";"PrcItem";"OtrMnda";"DescuentoPct";"DescuentoMonto";"SubDscto";"RecargoPct";"RecargoMonto";"SubRecargo";"CodImpAdic";"MontoItem"
-#Campo repetible 
 CdgItem;"TpoCodigo";"VlrCodigo"
-DR
-#Campo repetible
+/*Seccion repetible DR1, DR2, ETC..*/
+DR1
 DscRcgGlobal;"NroLinDR";"TpoMov";"GlosaDR";"TpoValor";"ValorDR";"ValorDROtrMnda";"IndExeDR"
-RE
-#Campo repetible
+/*Seccion repetible RE1, RE2, ETC..*/
+RE1
 Referencia;"NroLinRef";"TpoDocRef";"IndGlobal";"FolioRef";"RUTOtr";"FchRef";"CodRef";"RazonRef"
 ```
 
