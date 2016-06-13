@@ -1,7 +1,7 @@
 # API - Clami DTE
 
 Clami DTE, es un servicio de facturación electrónica que mediante la integración de nuestro webservice
-o uso del portal web, podra realizar la emision de documetos electrónicos tributarios
+o uso del portal web de facturación, podrá realizar la emisión de documentos electrónicos tributarios
 
 ### Tabla de contenidos
 **[Configuración Header](#configuración-header)**  
