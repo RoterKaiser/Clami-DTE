@@ -12,7 +12,7 @@ o uso del portal web de facturación, podrá realizar la emisión de documentos 
 ### Introduccion
 
 Para poder enviar un documento mediante webservice, se requiere que los datos que lo representan se encuentren
-en formato JSON o CSV dependiendo de su preferencia, una vez formateado el documento se debe enviar mediante un HTTP Request vía POST, el contenido del request debe ser de tipo JSON y se debe enviar con un token de autorización que identifique su usuario, una vez realizado el envío el servidor responderá en formato json con el resultado del Request.
+en formato JSON o CSV dependiendo de su preferencia, una vez formateado el documento se debe enviar mediante un HTTP Request vía POST, el contenido del request debe ser de tipo JSON y se debe enviar con un token de autorización que identifique su usuario. Una vez realizado el envío, el servidor retornara la respuesta en formato JSON.
 
 ### Configuración Header
 
