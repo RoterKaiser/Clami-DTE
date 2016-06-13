@@ -1,10 +1,10 @@
 # API - Clami DTE
 
 ### Tabla de contenidos
-**[Configuración Header](#configuracion-header)**  
-**[Métodos de envío en formato JSON](#metodo-envio-formato-json)**  
-**[Método de envío CSV](#metodo-envio-csv)**  
-**[Respuestas a envío](#respuesta-servidor)**  
+**[Configuración Header](#configuración-header)**  
+**[Métodos de envío en formato JSON](#éetodo-envío-formato-json)**  
+**[Método de envío CSV](#método-envío-csv)**  
+**[Respuestas a envío](#respuesta-envío)**  
 
 ### Configuración Header
 
@@ -321,7 +321,7 @@ SZWNhcmdvOzE7MgpEUgpEc2NSY2dHbG9iYWw7MTsyOzM7NDs1OzY
 ```
 
 
-##Respuesta Servidor
+##Respuestas a envío
 
 * Todas las respuestas entregadas por el sistema se encuentran en formato JSON
 
