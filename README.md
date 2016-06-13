@@ -268,27 +268,27 @@ La siguiente plantilla es el template general en formato CSV, utilizada por Clam
 + Nota de debito
 + Guia de despacho
 
-```ruby
+```java
 CA
-Caratula;1;2;3;4;5;6;7
+Caratula;"RutEmisor";"RutEnvia";"RutReceptor";"FchResol";"NroResol";"TmstFirmaEnv";"SubTotDTE"
+SubTotDTE;"TpoDTE";"NroDTE"
 EN
-Encabezado;1;2;3;4;5;6;7;8
-IdDoc;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20;21;22;23;24;25
-MntPagos;1;2;3
-Emisor;1;2;3;4;5;6;7;8;9;10;11;12;13;14
-Receptor;1;2;3;4;5;6;7;8;9;10;11;12;13
-Transporte;1;2;3;4;5;6;7
-Chofer;1;2
-ImptoReten;1;2;3
+Encabezado;"R";"R";"RUTMandante";"R";"RUTSolicita";"R";"R";"OtraMoneda"
+IdDoc;"TipoDTE";"Folio";"FchEmis";"IndNoRebaja";"TipoDespacho";"IndTraslado";"TpoImpresion";"IndServicio";"MntBruto";"FmaPago";"FmaPagExp";"FchCancel";"MntCancel";"SaldoInsol";"MntPagos";"PeriodoDesde";"PeriodoHasta";"MedioPago";"TpoCtaPago";"NumCtaPago";"BcoPago";"TermPagoCdg";"TermPagoGlosa";"TermPagoDias";"FchVenc"
+MntPagos;"FchPago";"MntPago";"GlosaPagos"
+Emisor;"RUTEmisor";"RznSoc";"GiroEmis";"Telefono";"CorreoEmisor";"Acteco";"R";"Sucursal";"CdgSIISucur";"DirOrigen";"CmnaOrigen";"CiudadOrigen";"CdgVendedor";"IdAdicEmisor"
+Receptor;"RUTRecep";"CdgIntRecep";"RznSocRecep";"Extranjero";"GiroRecep";"Contacto";"CorreoRecep";"DirRecep";"CmnaRecep";"CiudadRecep";"DirPostal";"CmnaPostal";"CiudadPostal"
+Transporte;"Patente";"RUTTrans";"R";"DirDest";"CmnaDest";"CiudadDest";"R"
+Chofer;"RUTChofer";"NombreChofer"
+TipoBultos;"CodTpoBultos";"CantBultos";"Marcas";"IdContainer";"Sello";"EmisorSello"
+ImptoReten;"TipoImp";"TasaImp";"MontoImp"
 DE
-Detalle;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20;21;22;23;24;25
-CdgItem;1;2
-SubDscto;1;2
-SubRecargo;1;2
+Detalle;"NroLinDet";"R";"IndExe";"Retenedor";"NmbItem";"DscItem";"QtyRef";"UnmdRef";"PrcRef";"QtyItem";"Subcantidad";"FchElabor";"FchVencim";"UnmdItem";"PrcItem";"OtrMnda";"DescuentoPct";"DescuentoMonto";"SubDscto";"RecargoPct";"RecargoMonto";"SubRecargo";"CodImpAdic";"MontoItem"
+CdgItem;"TpoCodigo";"VlrCodigo"
 DR
-DscRcgGlobal;1;2;3;4;5;6;7
+DscRcgGlobal;"NroLinDR";"TpoMov";"GlosaDR";"TpoValor";"ValorDR";"ValorDROtrMnda";"IndExeDR"
 RE
-Referencia;1;2;3;4;5;6;7;8
+Referencia;"NroLinRef";"TpoDocRef";"IndGlobal";"FolioRef";"RUTOtr";"FchRef";"CodRef";"RazonRef"
 ```
 
 ### Ejemplo CSV
