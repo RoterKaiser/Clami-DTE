@@ -279,7 +279,6 @@ Emisor;"RUTEmisor";"RznSoc";"GiroEmis";"Telefono";"CorreoEmisor";"Acteco";"R";"S
 Receptor;"RUTRecep";"CdgIntRecep";"RznSocRecep";"Extranjero";"GiroRecep";"Contacto";"CorreoRecep";"DirRecep";"CmnaRecep";"CiudadRecep";"DirPostal";"CmnaPostal";"CiudadPostal"
 Transporte;"Patente";"RUTTrans";"R";"DirDest";"CmnaDest";"CiudadDest";"R"
 Chofer;"RUTChofer";"NombreChofer"
-TipoBultos;"CodTpoBultos";"CantBultos";"Marcas";"IdContainer";"Sello";"EmisorSello"
 /*Campo Repetible*/
 ImptoReten;"TipoImp";"TasaImp";"MontoImp"
 /*Sección repetible DE1, DE2, ETC..*/
