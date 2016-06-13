@@ -2,9 +2,9 @@
 
 ### Tabla de contenidos
 **[Configuración Header](#configuración-header)**  
-**[Métodos de envío en formato JSON](#éetodo-envío-formato-json)**  
-**[Método de envío CSV](#método-envío-csv)**  
-**[Respuestas a envío](#respuesta-envío)**  
+**[Métodos de envío en formato JSON](#método-envío-formato-json)**  
+**[Método de envío CSV](#método-de-envío-csv)**  
+**[Respuestas a envío](#respuestas-a-envío)**  
 
 ### Configuración Header
 
