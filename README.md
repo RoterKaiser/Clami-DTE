@@ -268,7 +268,7 @@ La siguiente plantilla es el template general en formato CSV, utilizada por Clam
 + Nota de debito
 + Guia de despacho
 
-```js
+```ruby
 CA
 Caratula;1;2;3;4;5;6;7
 EN
