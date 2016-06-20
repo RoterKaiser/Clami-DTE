@@ -271,19 +271,18 @@ La siguiente plantilla es el template general en formato CSV, utilizada por Clam
 ```java
 CA
 Caratula;"RutEmisor";"RutEnvia";"RutReceptor";"FchResol";"NroResol";"TmstFirmaEnv";"SubTotDTE"
+SubTotDTE;"TpoDTE";"NroDTE"
 EN
-Encabezado;"R";"R";"RUTMandante";"R";"RUTSolicita";"R";"R";"OtraMoneda"
-IdDoc;"TipoDTE";"Folio";"FchEmis";"IndNoRebaja";"TipoDespacho";"IndTraslado";"TpoImpresion";"IndServicio";"MntBruto";"FmaPago";"FmaPagExp";"FchCancel";"MntCancel";"SaldoInsol";"MntPagos";"PeriodoDesde";"PeriodoHasta";"MedioPago";"TpoCtaPago";"NumCtaPago";"BcoPago";"TermPagoCdg";"TermPagoGlosa";"TermPagoDias";"FchVenc"
-MntPagos;"FchPago";"MntPago";"GlosaPagos"
+Encabezado;"R";"R";;"R";"RUTSolicita";"R";"R";
+IdDoc;"TipoDTE";"Folio";"FchEmis";"IndNoRebaja";"TipoDespacho";"IndTraslado";;"IndServicio";"MntBruto";"FmaPago";;"FchCancel";"MntCancel";"SaldoInsol";;;;"MedioPago";"TpoCtaPago";"NumCtaPago";"BcoPago";"TermPagoCdg";"TermPagoGlosa";"TermPagoDias";"FchVenc"
 Emisor;"RUTEmisor";"RznSoc";"GiroEmis";"Telefono";"CorreoEmisor";"Acteco";"R";"Sucursal";"CdgSIISucur";"DirOrigen";"CmnaOrigen";"CiudadOrigen";"CdgVendedor";"IdAdicEmisor"
-Receptor;"RUTRecep";"CdgIntRecep";"RznSocRecep";"Extranjero";"GiroRecep";"Contacto";"CorreoRecep";"DirRecep";"CmnaRecep";"CiudadRecep";"DirPostal";"CmnaPostal";"CiudadPostal"
+Receptor;"RUTRecep";"CdgIntRecep";"RznSocRecep";"R";"GiroRecep";"Contacto";"CorreoRecep";"DirRecep";"CmnaRecep";"CiudadRecep";"DirPostal";"CmnaPostal";"CiudadPostal"
 Transporte;"Patente";"RUTTrans";"R";"DirDest";"CmnaDest";"CiudadDest";"R"
-Chofer;"RUTChofer";"NombreChofer"
 /*Campo Repetible*/
 ImptoReten;"TipoImp";"TasaImp";"MontoImp"
 /*Sección repetible DE1, DE2, ETC..*/
 DE1
-Detalle;"NroLinDet";"R";"IndExe";"Retenedor";"NmbItem";"DscItem";"QtyRef";"UnmdRef";"PrcRef";"QtyItem";"Subcantidad";"FchElabor";"FchVencim";"UnmdItem";"PrcItem";"OtrMnda";"DescuentoPct";"DescuentoMonto";"SubDscto";"RecargoPct";"RecargoMonto";"SubRecargo";"CodImpAdic";"MontoItem"
+Detalle;"NroLinDet";"R";"IndExe";"Retenedor";"NmbItem";"DscItem";;;;;;;;"UnmdItem";"PrcItem";"OtrMnda";"DescuentoPct";"DescuentoMonto";"SubDscto";"RecargoPct";"RecargoMonto";"SubRecargo";"CodImpAdic";"MontoItem"
 CdgItem;"TpoCodigo";"VlrCodigo"
 /*Sección repetible DR1, DR2, ETC..*/
 DR1
@@ -292,6 +291,7 @@ DscRcgGlobal;"NroLinDR";"TpoMov";"GlosaDR";"TpoValor";"ValorDR";"ValorDROtrMnda"
 RE1
 Referencia;"NroLinRef";"TpoDocRef";"IndGlobal";"FolioRef";"RUTOtr";"FchRef";"CodRef";"RazonRef"
 ```
+
 
 ### Ejemplo CSV
 
