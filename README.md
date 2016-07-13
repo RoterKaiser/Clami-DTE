@@ -270,7 +270,7 @@ La siguiente plantilla es el template general en formato CSV, utilizada por Clam
 
 ```java
 CA
-Caratula;"RutEmisor";"RutEnvia";"RutReceptor";"FchResol";"NroResol";"TmstFirmaEnv";"SubTotDTE"
+Caratula;"RutEmisor";"RutEnvia";"RutReceptor";"FchResol";"NroResol";"TmstFirmaEnv";
 SubTotDTE;"TpoDTE";"NroDTE"
 EN
 Encabezado;"R";"R";;"R";"RUTSolicita";"R";"R";
@@ -282,7 +282,7 @@ Transporte;"Patente";"RUTTrans";"R";"DirDest";"CmnaDest";"CiudadDest";"R"
 ImptoReten;"TipoImp";"TasaImp";"MontoImp"
 /*Sección repetible DE1, DE2, ETC..*/
 DE1
-Detalle;"NroLinDet";"R";"IndExe";"Retenedor";"NmbItem";"DscItem";;;;;;;;"UnmdItem";"PrcItem";"OtrMnda";"DescuentoPct";"DescuentoMonto";"SubDscto";"RecargoPct";"RecargoMonto";"SubRecargo";"CodImpAdic";"MontoItem"
+Detalle;"NroLinDet";"CdgItem";"IndExe";"Retenedor";"NmbItem";"DscItem";"QtyRef";"UnmdRef";"PrcRef";"QtyItem";"Subcantidad";"FchElabor";"FchVencim";"UnmdItem";"PrcItem";"OtrMnda";"DescuentoPct";"DescuentoMonto";"SubDscto";"RecargoPct";"RecargoMonto";"SubRecargo";"CodImpAdic";"MontoItem"
 CdgItem;"TpoCodigo";"VlrCodigo"
 /*Sección repetible DR1, DR2, ETC..*/
 DR1
