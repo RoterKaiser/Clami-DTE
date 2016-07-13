@@ -273,6 +273,7 @@ CA
 Caratula;"RutEmisor";"RutEnvia";"RutReceptor";"FchResol";"NroResol";"TmstFirmaEnv";
 SubTotDTE;"TpoDTE";"NroDTE"
 EN
+Totales;;;;;"TasaIVA";;;;;;;;;;;;;
 Encabezado;"R";"R";;"R";"RUTSolicita";"R";"R";
 IdDoc;"TipoDTE";"Folio";"FchEmis";"IndNoRebaja";"TipoDespacho";"IndTraslado";;"IndServicio";"MntBruto";"FmaPago";;"FchCancel";"MntCancel";"SaldoInsol";;;;"MedioPago";"TpoCtaPago";"NumCtaPago";"BcoPago";"TermPagoCdg";"TermPagoGlosa";"TermPagoDias";"FchVenc"
 Emisor;"RUTEmisor";"RznSoc";"GiroEmis";"Telefono";"CorreoEmisor";"Acteco";"R";"Sucursal";"CdgSIISucur";"DirOrigen";"CmnaOrigen";"CiudadOrigen";"CdgVendedor";"IdAdicEmisor"
@@ -303,10 +304,10 @@ CA
 Caratula;1111111-1;2222222-2;60803000-K;2014-03-04;0;R;
 EN
 Totales;;;;;19;;;;;;;;;;;;;
+Encabezado;;;;;;;;
 IdDoc;33;;2016-05-25;;;;;;;;;;;;;;;;;;;;;;
 Emisor;1111111-1;EMPRESA PRUEBA;SERVICIOS INTEGRALES DE INFORMATICA;;;726000;;;;LINGUE 4789;SAN BERNARDO;SANTIAGO;;
 Receptor;3333333-3;;JORGE GONZALEZ LTDA;;COMPUTACION;;;SAN DIEGO 2222;LA FLORIDA;SANTIAGO;;;
-Encabezado;;;;;;;;
 DE1
 Detalle;1;;;;Pintura B&W AFECTO;;;;;40;;;;;4827;;;;;;;;;;
 DE2
