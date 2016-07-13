@@ -319,7 +319,7 @@ Referencia;1;SET;;72;;2016-05-25;1;CASO 478979-3
 FIN
 ```
 
-Una vez formado el documento a enviar, este se debe codificar en Base64, y por ultimo es enviado en el formato JSON ({Documento:'Documento_en_Base64'}), como se muestra a continuación.
+Una vez formado el documento a enviar este se debe codificar en Base64, y por ultimo es enviado en el formato JSON ({Documento:'Documento_en_Base64'}), como se muestra a continuación.
 ```js
 {
 "Documento":"Q0EKQ2FyYXR1bGE7MTsyOzM7NDs1OzY7NwpFTgp\
