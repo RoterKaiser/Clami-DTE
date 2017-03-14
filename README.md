@@ -303,7 +303,7 @@ A continuación se muestra el mismo ejemplo que se dio a conocer para el formato
 CA
 Caratula;1111111-1;2222222-2;60803000-K;2014-03-04;0;R;
 EN
-Totales;;;;;19;;;;;;;;;;;;;
+Totales;;;;;;19;;;;;;;;;;;;;
 Encabezado;;;;;;;;
 IdDoc;33;;2016-05-25;;;;;;;;;;;;;;;;;;;;;;
 Emisor;1111111-1;EMPRESA PRUEBA;SERVICIOS INTEGRALES DE INFORMATICA;;;726000;;;;LINGUE 4789;SAN BERNARDO;SANTIAGO;;
