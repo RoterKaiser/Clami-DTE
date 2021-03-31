@@ -482,7 +482,7 @@ codigo  | estado |  detalle     | documentos
 
 Para los casos de éxito se incluye el campo 'documentos', que contiene los datos del documento enviado y generado.
 
-#####Significado de los campos en la sección documentos del JSON de respuesta:
+##### Significado de los campos en la sección documentos del JSON de respuesta:
 
 * **xml**: URL temporal que contiene el xml del documento
 * **pdf**: URL temporal que contiene la versión impresa del documento
