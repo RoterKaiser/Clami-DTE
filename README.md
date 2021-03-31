@@ -1,20 +1,19 @@
 # API - Clami DTE
 
-Clami DTE, es un servicio de facturación electrónica que mediante la integración de nuestro webservice
-o uso del portal web de facturación, podrá realizar la emisión de documentos electrónicos tributarios
+Clami DTE, es un servicio SaaS de facturación electrónica para Chile que ofrece la posibilidad de integración para
+emitir Facturas, Notas de Crédito, Guias y Boleta electrónicas.
 
-### Tabla de contenidos
+## Tabla de contenidos
 **[Configuración Header](#configuración-header)**  
-**[Envío en formato json](#envío-en-formato-json)**  
-**[Envío en formato csv](#envío-en-formato-csv)**  
-**[Respuestas a envío](#respuestas-a-envío)**  
+**[Ejemplo vía curl](#ejemplo-vía-curl)**   
+**[Respuestas a la solicitud POST](#respuestas-a-la-solicitud-post)**  
 
-### Introduccion
+## Introducción
 
-Para poder enviar un documento mediante webservice, se requiere que los datos que lo representan se encuentren
-en formato JSON o CSV dependiendo de su preferencia, una vez formateado el documento se debe enviar mediante un HTTP Request vía POST. El contenido del request debe ser de tipo JSON y se debe incluir un token de autorización que identifique su usuario, el que debe ser obtenido del portal de facturación. Una vez realizado el envío, el servidor retornara la respuesta en formato JSON.
+Para poder generar un documento electrónico mediante Webservice, se requiere que los datos que lo representan se encuentren
+en formato JSON o CSV dependiendo de su preferencia, y se debe enviar mediante una solicitud HTTP Request con el metodo POST. El contenido del request debe ser de tipo JSON y se debe incluir un token de autorización en el encabezado que identifique su usuario ( Este debe ser obtenido del portal de facturación ). Una vez realizado el envío, el servidor retornara la respuesta en formato JSON.
 
-### Configuración Header
+## Configuración Header
 
 Se requiere que el header especifique el tipo de contenido JSON y el Token de autorización.
 
@@ -23,19 +22,20 @@ Content-Type: application/json
 Authorization: Token <value_token>
 ```
 
-## Envío en formato json
+## URL - POST Request
 
-### URL Envio:
-
-Url utilizada para realizar envio de documentos en formato JSON al webservice de Clami DTE.
-
+Para documentos electrónicos que no sean boleta:
 ```
 POST /v2/enviar/dte
 ```
+Para boletas electrónicas:
+```
+POST /v2/enviar/boleta
+```
 
-### Ejemplo envio vía curl:
+## Ejemplo vía curl:
 
-Ejemplo de envio de un documento en formato JSON, via CURL.
+Ejemplo de envió de un documento en formato JSON, vía CURL.
 
 * @dte.json : Corresponde al documento envíado
 
@@ -44,305 +44,417 @@ curl -H "Authorization:Token <value_token>" -H "Content-Type: application/json" 
 http://clami.cl/v2/enviar/dte
 ```
 
-### Plantilla General
 
-La siguiente plantilla es el template general en formato JSON, utilizada por Clami DTE para la formacion y envio de los siguientes documentos:
-
-+ Factura Electrónica
-+ Factura de compra
-+ Nota de credito
-+ Nota de debito
-+ Guia de despacho
-
-```js
-{
-  "Caratula": {
-    "RutEmisor": "value",
-    "RutEnvia": "value",
-    "RutReceptor": "value",
-    "FchResol": "value",
-    "NroResol": "value"
-  },
-  "Encabezado": {
-    "IdDoc": {
-      "TipoDTE": "value",
-      "Folio": "value",
-      "FchEmis": "value",
-      "IndNoRebaja": "value",
-      "TipoDespacho": "value",
-      "IndTraslado": "value",
-      "TpoImpresion": "value",
-      "IndServicio": "value",
-      "MntBruto": "value",
-      "FmaPago": "value",
-      "FmaPagExp": "value",
-      "MntPagos": {
-        "FchPago": "value",
-        "MntPago": "value",
-        "GlosaPagos": "value"
-      },
-      "PeriodoDesde": "value",
-      "PeriodoHasta": "value",
-      "MedioPago": "value",
-      "TpoCtaPago": "value",
-      "NumCtaPago": "value",
-      "BcoPago": "value",
-      "TermPagoCdg": "value",
-      "TermPagoGlosa": "value",
-      "TermPagoDias": "value",
-      "FchVenc": "value"
-    },
-    "Emisor": {
-      "RUTEmisor": "value",
-      "RznSoc": "value",
-      "GiroEmis": "value",
-      "Telefono": "value",
-      "CorreoEmisor": "value",
-      "Acteco": "value",
-      "DirOrigen": "value",
-      "CmnaOrigen": "value",
-      "CiudadOrigen": "value",
-      "CdgVendedor": "value",
-    },
-   "Receptor": {
-      "RUTRecep": "value",
-      "RznSocRecep": "value",
-      "GiroRecep": "value",
-      "Contacto": "value",
-      "CorreoRecep": "value",
-      "DirRecep": "value",
-      "CmnaRecep": "value",
-      "CiudadRecep": "value",
-      "DirPostal": "value",
-      "CmnaPostal": "value",
-      "CiudadPostal": "value"
-    },
-    "RUTSolicita": "value",
-    "Transporte": {
-      "Patente": "value",
-      "RUTTrans": "value",
-      "Chofer": {
-        "RUTChofer": "value",
-        "NombreChofer": "value"
-      },
-      "DirDest": "value",
-      "CmnaDest": "value",
-      "CiudadDest": "value"
-    },
-  },
-  "Detalle": [{
-    "CdgItem": {
-      "TpoCodigo": "value",
-      "VlrCodigo": "value"
-    },
-    "IndExe": "value",
-    "NmbItem": "value",
-    "DscItem": "value",
-    "QtyRef": "value",
-    "UnmdRef": "value",
-    "PrcRef": "value",
-    "QtyItem": "value",
-    "FchElabor": "value",
-    "FchVencim": "value",
-    "UnmdItem": "value",
-    "PrcItem": "value",
-    "DescuentoPct": "value",
-    "DescuentoMonto": "value",
-    "RecargoPct": "value",
-    "RecargoMonto": "value",
-    "CodImpAdic": "value",
-    "MontoItem": "value"
-  }],
-   "DscRcgGlobal": [{
-    "TpoMov": "value",
-    "GlosaDR": "value",
-    "TpoValor": "value",
-    "ValorDR": "value",
-    "IndExeDR": "value"
-  }],
-    "Referencia": [{
-    "NroLinRef": "value",
-    "TpoDocRef": "value",
-    "IndGlobal": "value",
-    "FolioRef": "value",
-    "RUTOtr": "value",
-    "FchRef": "value",
-    "CodRef": "value",
-    "RazonRef": "value"
-  }]
-}
-```
-###Ejemplo Factura Electrónica
+### JSON Boleta Electrónica
 
 A continuación se da a conocer un ejemplo de factura electrónica en formato JSON.
 
 ```js
-
 {
-  "Caratula": {
-    "RutEmisor": "1111111-1",
-    "TmstFirmaEnv": "R",
-    "RutReceptor": "60803000-K",
-    "RutEnvia": "2222222-2",
-    "NroResol": "0",
-    "FchResol": "2014-03-04"
-  },
-  "Documentos": [
-    {
-      "Encabezado": {
-        "Totales": {
-          "TasaIVA": "19"
-        },
-        "IdDoc": {
-          "TipoDTE": "33",
-          "FchEmis": "2016-05-25"
-        },
-        "Emisor": {
-          "RUTEmisor": "1111111-1",
-          "CiudadOrigen": "SANTIAGO",
-          "Acteco": "726000",
-          "GiroEmis": "SERVICIOS INTEGRALES DE INFORMATICA",
-          "CmnaOrigen": "SAN BERNARDO",
-          "RznSoc": "EMPRESA PRUEBA",
-          "DirOrigen": "LINGUE 4789"
-        },
-        "Receptor": {
-          "RznSocRecep": "JORGE GONZALEZ LTDA",
-          "CmnaRecep": "LA FLORIDA",
-          "DirRecep": "SAN DIEGO 2222",
-          "GiroRecep": "COMPUTACION",
-          "RUTRecep": "3333333-3",
-          "CiudadRecep": "SANTIAGO"
-        }
-      },
-      "Referencia": [
-        {
-          "TpoDocRef": "SET",
-          "FchRef": "2016-05-25",
-          "FolioRef": "72",
-          "NroLinRef": "1",
-          "RazonRef": "CASO 478979-3",
-	  "CodRef":"1"
-        }
-      ],
-      "Detalle": [
-        {
-          "PrcItem": "4827",
-          "NmbItem": "Pintura B&W AFECTO",
-          "NroLinDet": "1",
-          "QtyItem": "40"
-        },
-        {
-          "PrcItem": "3475",
-          "NmbItem": "ITEM 2 AFECTO",
-          "NroLinDet": "2",
-          "QtyItem": "198"
-        },
-        {
-          "QtyItem": "1",
-          "PrcItem": "35033",
-          "NmbItem": "ITEM 3 SERVICIO EXENTO",
-          "NroLinDet": "3",
-          "IndExe": "1"
-        }
-      ]
-    }
-  ]
+   "Documentos":[
+      {
+         "Encabezado":{
+            "IdDoc":{
+               "IndServicio":3,
+               "TipoDTE":"39"
+            },
+            "Receptor":{
+               "RznSocRecep":"INDEFINIDO",
+               "RUTRecep":"66666666-6"
+            }
+         },
+          // En esta sección se pueden agregar los medios de pago y vuelto, para que salgan en el PDF
+         "SubTotInfo":[
+            {
+               "GlosaSTI":"TARJETA DEBITO",
+               "ValSubtotSTI":"10000",
+            },
+            {
+               "GlosaSTI":"EFECTIVO",
+               "ValSubtotSTI":"5000",
+            },
+            {
+               "GlosaSTI":"VUELTO",
+               "ValSubtotSTI":390,
+            }
+         ],
+          // En esta sección se pueden agregar los datos de la caja
+          // Se debe respertar la glosa "DATOS CAJA" para que sea reconocido el campo
+          // Si el código de vendedor existe en Clami, se desglozara su nombre en la boleta.
+         "Referencia":[
+            {
+               "CodVndor":1,
+               "CodCaja":1,
+               "RazonRef":"DATOS CAJA"
+            }
+         ],
+          // Sección de Descuentos y Recargos
+          // TpoMov:D , para esepecificar descuento
+          // TpoMov:R , para esepecificar recargo
+          // La GlosaDR, se imprime en la boleta
+         "DscRcgGlobal":[
+            {
+               "TpoMov":"D",
+               "ValorDR":3653,
+                 // Glosa obligatoria para especificar descuento global
+               "GlosaDR":"Descuento",
+               "TpoValor":"$"
+            },
+            {
+               "TpoMov":"D",
+               "ValorDR":3, 
+                // Glosa obligatoria para especificar ley del redondeo
+               "GlosaDR":"LeyDelRedondeo",
+               "TpoValor":"$"
+            }
+         ],
+          // Sección para el detalle de la boleta ( productos )
+         "Detalle":[
+            {
+               "CdgItem":{
+                  "VlrCodigo":"9937993755000",
+                  "TpoCodigo":"INT1"
+               },
+               "UnmdItem":"UND",
+               "NmbItem":"ALMOHADILLA TERAP.CHICA",
+               "QtyItem":5,
+               "PrcItem":2790
+            },
+            {
+               "CdgItem":{
+                  "VlrCodigo":"9980808776653",
+                  "TpoCodigo":"INT1"
+               },
+               "UnmdItem":"UND",
+               "NmbItem":"SAL INGLESA 30GR.",
+               "QtyItem":3,
+               "PrcItem":690
+            },
+            {
+               "UnmdItem":"UND",
+               "PrcItem":1248,
+               "CdgItem":{
+                  "VlrCodigo":"99176480372",
+                  "TpoCodigo":"INT1"
+               },
+               "NmbItem":"COLGATE TOT12 GEL WH.97GR",
+               "DescuentoMonto":250, // Ejemplo de descuento
+               "QtyItem":2
+            }
+         ]
+      }
+   ]
 }
 ```
 
-## Envío en formato csv
 
-### URL Envio:
-```
-POST /v1/enviar/dte
-```
+### JSON Nota de crédito - Aulacion parcial - Boleta
 
-###Plantilla General
+A continuación se da a conocer un ejemplo de Nota de crédito por anulación parcial
 
-La siguiente plantilla es el template general en formato CSV, utilizada por Clami DTE para la formacion y envio de los siguientes documentos:
-
-+ Factura Electrónica
-+ Factura de compra
-+ Nota de credito
-+ Nota de debito
-+ Guia de despacho
-
-```java
-CA
-Caratula;"RutEmisor";"RutEnvia";"RutReceptor";"FchResol";"NroResol";"TmstFirmaEnv";
-SubTotDTE;"TpoDTE";"NroDTE"
-EN
-Totales;;;;;"TasaIVA";;;;;;;;;;;;;
-Encabezado;"R";"R";;"R";"RUTSolicita";"R";"R";
-IdDoc;"TipoDTE";"Folio";"FchEmis";"IndNoRebaja";"TipoDespacho";"IndTraslado";;"IndServicio";"MntBruto";"FmaPago";;"FchCancel";"MntCancel";"SaldoInsol";;;;"MedioPago";"TpoCtaPago";"NumCtaPago";"BcoPago";"TermPagoCdg";"TermPagoGlosa";"TermPagoDias";"FchVenc"
-Emisor;"RUTEmisor";"RznSoc";"GiroEmis";"Telefono";"CorreoEmisor";"Acteco";"R";"Sucursal";"CdgSIISucur";"DirOrigen";"CmnaOrigen";"CiudadOrigen";"CdgVendedor";"IdAdicEmisor"
-Receptor;"RUTRecep";"CdgIntRecep";"RznSocRecep";"R";"GiroRecep";"Contacto";"CorreoRecep";"DirRecep";"CmnaRecep";"CiudadRecep";"DirPostal";"CmnaPostal";"CiudadPostal"
-Transporte;"Patente";"RUTTrans";"R";"DirDest";"CmnaDest";"CiudadDest";"R"
-/*Campo Repetible*/
-ImptoReten;"TipoImp";"TasaImp";"MontoImp"
-/*Sección repetible DE1, DE2, ETC..*/
-DE1
-Detalle;"NroLinDet";"CdgItem";"IndExe";"Retenedor";"NmbItem";"DscItem";"QtyRef";"UnmdRef";"PrcRef";"QtyItem";"Subcantidad";"FchElabor";"FchVencim";"UnmdItem";"PrcItem";"OtrMnda";"DescuentoPct";"DescuentoMonto";"SubDscto";"RecargoPct";"RecargoMonto";"SubRecargo";"CodImpAdic";"MontoItem"
-CdgItem;"TpoCodigo";"VlrCodigo"
-/*Sección repetible DR1, DR2, ETC..*/
-DR1
-DscRcgGlobal;"NroLinDR";"TpoMov";"GlosaDR";"TpoValor";"ValorDR";"ValorDROtrMnda";"IndExeDR"
-/*Sección repetible RE1, RE2, ETC..*/
-RE1
-Referencia;"NroLinRef";"TpoDocRef";"IndGlobal";"FolioRef";"RUTOtr";"FchRef";"CodRef";"RazonRef"
-```
-
-
-### Ejemplo CSV
-
-A continuación se muestra el mismo ejemplo que se dio a conocer para el formato JSON, pero en esta ocasión en formato CSV.
-
-
-```ruby
-CA
-Caratula;1111111-1;2222222-2;60803000-K;2014-03-04;0;R;
-EN
-Totales;;;;;19;;;;;;;;;;;;;
-Encabezado;;;;;;;;
-IdDoc;33;;2016-05-25;;;;;;;;;;;;;;;;;;;;;;
-Emisor;1111111-1;EMPRESA PRUEBA;SERVICIOS INTEGRALES DE INFORMATICA;;;726000;;;;LINGUE 4789;SAN BERNARDO;SANTIAGO;;
-Receptor;3333333-3;;JORGE GONZALEZ LTDA;;COMPUTACION;;;SAN DIEGO 2222;LA FLORIDA;SANTIAGO;;;
-DE1
-Detalle;1;;;;Pintura B&W AFECTO;;;;;40;;;;;4827;;;;;;;;;;
-DE2
-Detalle;2;;;;ITEM 2 AFECTO;;;;;198;;;;;3475;;;;;;;;;;
-DE3
-Detalle;3;;1;;ITEM 3 SERVICIO EXENTO;;;;;1;;;;;35033;;;;;;;;;;
-RE1
-Referencia;1;SET;;72;;2016-05-25;1;CASO 478979-3
-FIN
-```
-
-Una vez formado el documento a enviar este se debe codificar en Base64, y por ultimo es enviado en el formato JSON ({Documento:'Documento_en_Base64'}), como se muestra a continuación.
 ```js
 {
-"Documento":"Q0EKQ2FyYXR1bGE7MTsyOzM7NDs1OzY7NwpFTgp\
-FbmNhYmV6YWRvOzE7MjszOzQ7NTs2Ozc7OApJZERvYzsxOzI7Mzs\
-0OzU7Njs3Ozg7OTsxMDsxMTsxMjsxMzsxNDsxNTsxNjsxNzsxODs\
-xOTsyMDsyMTsyMjsyMzsyNDsyNQpNbnRQYWdvczsxOzI7MwpFbWl\
-zb3I7MTsyOzM7NDs1OzY7Nzs4Ozk7MTA7MTE7MTI7MTM7MTQKUmV\
-jZXB0b3I7MTsyOzM7NDs1OzY7Nzs4Ozk7MTA7MTE7MTI7MTMKVHJ\
-hbnNwb3J0ZTsxOzI7Mzs0OzU7Njs3CkNob2ZlcjsxOzIKSW1wdG9\
-SZXRlbjsxOzI7MwpERQpEZXRhbGxlOzE7MjszOzQ7NTs2Ozc7ODs\
-5OzEwOzExOzEyOzEzOzE0OzE1OzE2OzE3OzE4OzE5OzIwOzIxOzI\
-yOzIzOzI0OzI1CkNkZ0l0ZW07MTsyClN1YkRzY3RvOzE7MgpTdWJ\
-SZWNhcmdvOzE7MgpEUgpEc2NSY2dHbG9iYWw7MTsyOzM7NDs1OzY\
-7NwpSRQpSZWZlcmVuY2lhOzE7MjszOzQ7NTs2Ozc7OA="
+   "Documentos":[
+      {
+         "Encabezado":{
+            "IdDoc":{
+               "TipoDTE":"61"
+            },
+            "Receptor":{
+               "RznSocRecep":"INDEFINIDO",
+               "RUTRecep":"66666666-6"
+            }
+         },
+         "Referencia":[
+            {
+                // Anulación a boleta 
+               "TpoDocRef":"39",
+               "FchRef":"2021-03-31",
+               "RazonRef":"Anulación documento",
+               "FolioRef":"2590",
+                // Este campo indica el tipo de nota de crédito
+                // 1: Anula Documento de referencia (Anulacion total los montos de la NC === Factura o Boleta)
+                // 2: Corrige Texto Documento de referencia
+                // 3: Corrige montos ( Anulacion Parcial, los montos de la NC !== Factura o Boleta )
+               "CodRef":"1"
+            }
+         ],
+         "DscRcgGlobal":[
+            {
+               "TpoMov":"D",
+               "ValorDR":6,
+                // Glosa obligatoria para especificar ley del redondeo
+               "GlosaDR":"LeyDelRedondeo",
+               "TpoValor":"$"
+            }
+         ],
+         "Detalle":[
+            {
+               "CdgItem":{
+                  "VlrCodigo":"9937993755000",
+                  "TpoCodigo":"INT1"
+               },
+               "UnmdItem":"UND",
+               "NmbItem":"ALMOHADILLA TERAP.CHICA",
+               "QtyItem":5,
+               "PrcItem":2790
+            },
+            {
+               "CdgItem":{
+                  "VlrCodigo":"9980808776653",
+                  "TpoCodigo":"INT1"
+               },
+               "UnmdItem":"UND",
+               "NmbItem":"SAL INGLESA 30GR.",
+               "QtyItem":3,
+               "PrcItem":690
+            },
+            {
+               "UnmdItem":"UND",
+               "PrcItem":1248,
+               "CdgItem":{
+                  "VlrCodigo":"99176480372",
+                  "TpoCodigo":"INT1"
+               },
+               "NmbItem":"COLGATE TOT12 GEL WH.97GR",
+               "DescuentoMonto":250,
+               "QtyItem":2
+            }
+         ]
+      }
+   ]
 }
 ```
 
+### JSON Factura Electrónica
 
-##Respuestas a envío
+A continuación se da a conocer un ejemplo de Factura electrónica.
 
-A continuación se da a conocer los tipos de respuestas posibles retornadas por el servidor las que se encuentran en formato JSON.
+```js
+{
+   "Documentos":[
+      {
+         "Encabezado":{
+            "IdDoc":{
+                // Al indicar MntBruto implica que los precios se encuetran con IVA
+                // para ocupar valores netos no se debe agregar este campo
+               "MntBruto":"1",
+               "TipoDTE":"33",
+               "FchVenc":"2021-03-31",
+               "TermPagoGlosa":"30 dias"
+            },
+            "Emisor":{
+               "CdgVendedor":"Juan"
+            },
+            "Receptor":{
+               "RznSocRecep":"CONTACTO INFORMATICA",
+               "CmnaRecep":"Nunoa",
+               "DirRecep":"San Eugenio 1331",
+               "GiroRecep":"INFORMATICA",
+               "RUTRecep":"78961710-4",
+               "CiudadRecep":"Santiago",
+               "Contacto":"Francisco"
+            }
+         },
+         "Referencia":[
+            {
+               "TpoDocRef":"52",
+               "FchRef":"2021-03-17",
+               "FolioRef":"5",
+               "RazonRef":"Facturación guia"
+            }
+         ],
+         "DscRcgGlobal":[
+            {
+               "TpoMov":"D",
+               "ValorDR":3382,
+                // Glosa obligatoria para especificar descuento global
+               "GlosaDR":"Descuento",
+               "TpoValor":"$"
+            },
+            {
+               "TpoMov":"D",
+               "ValorDR":6,
+                // Glosa obligatoria para especificar ley del redondeo
+               "GlosaDR":"LeyDelRedondeo",
+               "TpoValor":"$"
+            }
+         ],
+         "Detalle":[
+            {
+               "CdgItem":{
+                  "VlrCodigo":"9937993755000",
+                  "TpoCodigo":"INT1"
+               },
+               "UnmdItem":"UND",
+               "NmbItem":"ALMOHADILLA TERAP.CHICA",
+               "QtyItem":"10",
+               "PrcItem":2790
+            },
+            {
+               "UnmdItem":"UND",
+               "PrcItem":890,
+               "CdgItem":{
+                  "VlrCodigo":"9980808883221",
+                  "TpoCodigo":"INT1"
+               },
+               "NmbItem":"MAGNESIO CLORURO 30GR",
+               "DescuentoMonto":312,
+               "QtyItem":"7"
+            }
+         ]
+      }
+   ]
+}
+```
 
-**TIpos de campos**:
+### JSON Nota de crédito - Anulación total - Factura
+
+ A continuación se da a conocer un ejemplo de Nota de crédito por anulación total.
+
+```js
+{
+   "Documentos":[
+      {
+         "Encabezado":{
+            "IdDoc":{
+                // Al indicar MntBruto implica que los precios se encuetran con IVA
+                // para ocupar valores netos no se debe agregar este campo
+                "MntBruto":"1",
+                "TipoDTE":"61",
+                "TermPagoGlosa":"30 dias"
+            },
+            "Emisor":{
+                "CdgVendedor":"Juan"
+            },
+            "Receptor":{
+                "RznSocRecep":"CONTACTO INFORMATICA",
+                "CmnaRecep":"San Bernardo",
+                "RUTRecep":"78961710-4",
+                "GiroRecep":"INFORMATICA",
+                "DirRecep":"LINGUE 516",
+                "CiudadRecep":"Santiago",
+                "Contacto":"Francisco"
+            }
+         },
+         "Referencia":[
+            {
+                "TpoDocRef":"33", 
+                "FolioRef":"2043",
+                "FchRef":"2021-03-31",
+                "RazonRef":"Devolución de productos",
+                // Este campo indica el tipo de nota de crédito
+                // 1: Anula Documento de referencia (Anulacion total los montos de la NC === Factura o Boleta)
+                // 2: Corrige Texto Documento de referencia
+                // 3: Corrige montos ( Anulacion Parcial, los montos de la NC !== Factura o Boleta )
+                "CodRef":"3"
+            }
+         ],
+         "Detalle":[
+            {
+                "UnmdItem":"UND",
+                "PrcItem":890,
+                "CdgItem":{
+                   "VlrCodigo":"9980808883221",
+                   "TpoCodigo":"INT1"
+                },
+                "NmbItem":"MAGNESIO CLORURO 30GR",
+                "DescuentoMonto":312,
+                "QtyItem":7
+            }
+         ]
+      }
+   ]
+}
+```
+
+### JSON Guía de despacho
+
+ A continuación se da a conocer un ejemplo de la guia de despacho.
+
+```js
+{
+   "Documentos":[
+      {
+         "Encabezado":{
+            "IdDoc":{
+                // El campo IndTraslado indica que tipo de guia se envíara
+                //2: Ventas por efectuar
+                //3: Consignaciones
+                //4: Entrega gratuita
+                //5: Traslados internos
+                //6: Otros traslados no venta
+                //7: Guía de devolución
+                //8: Traslado para exportación. (no venta)
+                //9: Venta para exportación
+               "IndTraslado":"6",
+                // Al indicar MntBruto implica que los precios se encuetran con IVA
+                // para ocupar valores netos no se debe agregar este campo
+               "MntBruto":"1",
+               "TipoDTE":"52"
+            },
+            "Receptor":{
+               "RznSocRecep":"CONTACTO INFORMATICA",
+               "CmnaRecep":"Nunoa",
+               "DirRecep":"SAN EUGENIO 1331",
+               "GiroRecep":"INFORMATICA",
+               "RUTRecep":"78961710-4",
+               "CiudadRecep":"Santiago",
+               "Contacto":"Jaime"
+            },
+            "Transporte":{
+               "Patente":"ABCD123",
+               "CiudadDest":"Santiago",
+               "Chofer":{
+                  "NombreChofer":"JUAN",
+                  "RUTChofer":"11111111-1"
+               },
+               "DirDest":"PATRONATO 324",
+               "CmnaDest":"Recoleta"
+            }
+         },
+         "Detalle":[
+            {
+               "CdgItem":{
+                  "VlrCodigo":"9937993755000",
+                  "TpoCodigo":"INT1"
+               },
+               "UnmdItem":"UND",
+               "NmbItem":"ALMOHADILLA TERAP.CHICA",
+               "QtyItem":1,
+               "PrcItem":2790
+            },
+            {
+               "CdgItem":{
+                  "VlrCodigo":"9980808776653",
+                  "TpoCodigo":"INT1"
+               },
+               "UnmdItem":"UND",
+               "NmbItem":"SAL INGLESA 30GR.",
+               "QtyItem":1,
+               "PrcItem":690
+            },
+            {
+               "CdgItem":{
+                  "VlrCodigo":"99176480372",
+                  "TpoCodigo":"INT1"
+               },
+               "UnmdItem":"UND",
+               "NmbItem":"COLGATE TOT12 GEL WH.97GR",
+               "QtyItem":1,
+               "PrcItem":1248
+            }
+         ]
+      }
+   ]
+}
+```
+
+## Respuestas a la solicitud POST
+
+A continuación se da a conocer los tipos de respuestas posibles entregadas por el servidor, las cuales se retornan en formato JSON.
+
+###Tabla de respuestas:
 
 codigo  | estado |  detalle     | documentos
 --------|--------|--------------|------------
@@ -368,17 +480,16 @@ codigo  | estado |  detalle     | documentos
 **406**     | No se pudo obtener un token de autenticación con SII| NO | NO
 
 
-Para los casos de exito se incluye el campo 'documentos', que contiene los datos de los documentos enviados y generados.
+Para los casos de éxito se incluye el campo 'documentos', que contiene los datos del documento enviado y generado.
 
-#####Campos incluidos en 'documentos':
+#####Significado de los campos en la sección documentos del JSON de respuesta:
 
-* **xml**: URL temporal que contiene el xml del documento, en caso de q se desee obtener para impresión u otro objetivo
-* **pdf**: URL temporal que contiene el xml del documento, en caso de q se desee obtener para impresión u otro objetivo
+* **xml**: URL temporal que contiene el xml del documento
+* **pdf**: URL temporal que contiene la versión impresa del documento
 * **folio**: Folio asignado al documento
 * **tipo**: Tipo de documento
-
-
-##### Ejemplo respuesta en caso de exito
+                    
+##### Ejemplo respuesta en caso de éxito
 
 ```js
 {  
