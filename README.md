@@ -148,7 +148,7 @@ A continuación se da a conocer un ejemplo de factura electrónica en formato JS
 ```
 
 
-### JSON Nota de crédito - Aulacion parcial - Boleta
+### JSON Nota de crédito - Anulación parcial - Boleta
 
 A continuación se da a conocer un ejemplo de Nota de crédito por anulación parcial
 
