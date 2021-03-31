@@ -47,7 +47,7 @@ http://clami.cl/v2/enviar/dte
 
 ### JSON Boleta Electrónica
 
-A continuación se da a conocer un ejemplo de factura electrónica en formato JSON.
+A continuación se entrega un ejemplo de boleta electrónica en formato JSON.
 
 ```js
 {
@@ -150,7 +150,7 @@ A continuación se da a conocer un ejemplo de factura electrónica en formato JS
 
 ### JSON Nota de crédito - Anulación parcial - Boleta
 
-A continuación se da a conocer un ejemplo de Nota de crédito por anulación parcial
+A continuación se entrega un ejemplo de Nota de crédito por anulación parcial
 
 ```js
 {
@@ -310,7 +310,7 @@ A continuación se da a conocer un ejemplo de Factura electrónica.
 
 ### JSON Nota de crédito - Anulación total - Factura
 
- A continuación se da a conocer un ejemplo de Nota de crédito por anulación total.
+ A continuación entrega un ejemplo de Nota de crédito por anulación total.
 
 ```js
 {
