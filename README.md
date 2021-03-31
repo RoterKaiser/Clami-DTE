@@ -454,7 +454,7 @@ A continuación se da a conocer un ejemplo de Factura electrónica.
 
 A continuación se da a conocer los tipos de respuestas posibles entregadas por el servidor, las cuales se retornan en formato JSON.
 
-###Tabla de respuestas:
+### Tabla de respuestas:
 
 codigo  | estado |  detalle     | documentos
 --------|--------|--------------|------------
